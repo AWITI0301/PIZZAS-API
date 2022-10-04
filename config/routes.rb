@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  resources :pizzas
-  resources :restaurants
-  resources :restaurant_pizzas
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :restaurant_pizzas, only: :create
+  resources :restaurants, only: [:index, :show, :destroy]
+  resources :pizzas, only: [:index]
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
